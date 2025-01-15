@@ -1,10 +1,10 @@
 "use client";
 
 import { AppBar, Toolbar, Typography, IconButton, Avatar } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
+import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import BedtimeOutlinedIcon from "@mui/icons-material/BedtimeOutlined";
 
-export function TopNav() {
+export function Header() {
   return (
     <AppBar
       position="fixed"
@@ -18,22 +18,17 @@ export function TopNav() {
       }}
     >
       <Toolbar>
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          edge="start"
-          sx={{ mr: 2 }}
-        >
-          <MenuIcon />
+        <IconButton aria-label="open drawer" edge="start" sx={{ mr: 2 }}>
+          <MenuOpenIcon />
         </IconButton>
         <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
           Analytics Dashboard
         </Typography>
-        <IconButton sx={{ mr: 1 }} color="inherit">
+        <IconButton sx={{ mr: 1 }}>
           <BedtimeOutlinedIcon />
         </IconButton>
-        <IconButton color="inherit">
-          <Avatar alt="User Avatar" src="/placeholder.svg" />
+        <IconButton>
+          <Avatar alt="User Avatar" />
         </IconButton>
       </Toolbar>
     </AppBar>
