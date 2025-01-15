@@ -13,7 +13,6 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
       sx={{
         display: "flex",
         minHeight: "100vh",
-        backgroundColor: "background.default",
       }}
     >
       <Header />

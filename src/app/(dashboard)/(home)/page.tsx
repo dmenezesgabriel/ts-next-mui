@@ -1,8 +1,6 @@
 import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { Filter } from "./filter";
+import { DashboardFilters } from "./dashboard-filters";
 
 export default function Home() {
   return (
@@ -12,35 +10,13 @@ export default function Home() {
       }}
       component="main"
     >
-      <Box>
+      <Box component="section">
         <Typography variant="h4" gutterBottom>
-          Financial Dashboard
+          Financial Summary
         </Typography>
       </Box>
 
-      <Box>
-        <Card
-          variant="outlined"
-          sx={{
-            border: "0.5px solid background.default",
-          }}
-        >
-          <CardContent>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                gap: 2,
-              }}
-            >
-              <Filter />
-              <Filter />
-              <Filter />
-            </Box>
-          </CardContent>
-        </Card>
-      </Box>
+      <DashboardFilters />
     </Box>
   );
 }
