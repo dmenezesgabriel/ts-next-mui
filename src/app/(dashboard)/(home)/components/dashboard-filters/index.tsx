@@ -12,18 +12,20 @@ import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 export function DashboardFilters() {
   const years = ["2023", "2024", "2025"];
   const categories = ["Furniture"];
+  const departments = ["Marketing", "Sales", "HR", "Engineering", "Finance"];
 
   return (
     <Stack
       direction={{ xs: "column", sm: "row" }}
+      spacing={2}
       sx={{
         alignItems: "center",
-        gap: 2,
       }}
     >
       <Box component="span">
         <Typography sx={{ fontWeight: "light" }}>Filters: </Typography>
       </Box>
+
       <FormControl size="small" sx={{ width: { xs: "100%", md: "320px" } }}>
         <InputLabel id="year-select-label">Year</InputLabel>
         <Select
@@ -45,6 +47,29 @@ export function DashboardFilters() {
             })}
         </Select>
       </FormControl>
+
+      <FormControl size="small" sx={{ width: { xs: "100%", md: "320px" } }}>
+        <InputLabel id="department-select-label">Department</InputLabel>
+        <Select
+          multiple
+          labelId="department-select-label"
+          id="department-select"
+          value={[]}
+          label="Department"
+          sx={{ width: { xs: "100%", md: "320px" } }}
+        >
+          <MenuItem value={"All"}>All</MenuItem>
+          {departments &&
+            departments.map((department) => {
+              return (
+                <MenuItem key={department} value={department}>
+                  {department}
+                </MenuItem>
+              );
+            })}
+        </Select>
+      </FormControl>
+
       <FormControl size="small" sx={{ width: { xs: "100%", md: "320px" } }}>
         <InputLabel id="category-select-label">Category</InputLabel>
         <Select
@@ -66,6 +91,7 @@ export function DashboardFilters() {
             })}
         </Select>
       </FormControl>
+
       <Button
         startIcon={<SearchOutlinedIcon />}
         variant="outlined"

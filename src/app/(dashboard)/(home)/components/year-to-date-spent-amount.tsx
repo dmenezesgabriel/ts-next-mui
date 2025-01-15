@@ -33,7 +33,7 @@ export function YearToDateSpentAmount() {
                 currency: "BRL",
               })}
             </Typography>
-            <Typography sx={{ fontWeight: "light" }}>Jan to Fev</Typography>
+            <Typography sx={{ fontWeight: "light" }}>Jan to Sep</Typography>
           </Stack>
           <Stack direction="row" sx={{ gap: 1 }}>
             <Chip
