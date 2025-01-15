@@ -1,6 +1,7 @@
 import { SideBar } from "@/components/side-bar";
 import { Header } from "@/components/header";
 import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
 import { ReactNode } from "react";
 
 interface DashboardLayoutProps {
@@ -9,11 +10,7 @@ interface DashboardLayoutProps {
 
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
-    <Box
-      sx={{
-        display: "flex",
-      }}
-    >
+    <Stack direction="row">
       <Header />
       <SideBar open={false} />
       <Box
@@ -24,6 +21,6 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
       >
         {children}
       </Box>
-    </Box>
+    </Stack>
   );
 }

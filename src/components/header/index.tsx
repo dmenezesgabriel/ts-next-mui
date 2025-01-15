@@ -21,11 +21,7 @@ export function Header() {
         <IconButton aria-label="open drawer" edge="start" sx={{ mr: 2 }}>
           <MenuOpenIcon />
         </IconButton>
-        <Typography
-          component="p"
-          sx={{ flexGrow: 1, fontWeight: "regular" }}
-          noWrap
-        >
+        <Typography sx={{ flexGrow: 1, fontWeight: "regular" }} noWrap>
           Analytics Dashboard
         </Typography>
 

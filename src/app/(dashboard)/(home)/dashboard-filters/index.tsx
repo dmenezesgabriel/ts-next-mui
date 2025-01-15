@@ -1,4 +1,5 @@
 import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import FormControl from "@mui/material/FormControl";
@@ -13,11 +14,9 @@ export function DashboardFilters() {
   const categories = ["Furniture"];
 
   return (
-    <Box
-      component="div"
+    <Stack
+      direction={{ xs: "column", sm: "row" }}
       sx={{
-        display: "flex",
-        flexDirection: { xs: "column", sm: "row" },
         alignItems: "center",
         gap: 2,
       }}
@@ -85,6 +84,6 @@ export function DashboardFilters() {
       >
         Clear
       </Button>
-    </Box>
+    </Stack>
   );
 }
