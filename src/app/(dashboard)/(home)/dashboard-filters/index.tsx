@@ -23,7 +23,7 @@ export function DashboardFilters() {
       }}
     >
       <Box component="span">
-        <Typography sx={{ color: "text.secondary" }}>Filters: </Typography>
+        <Typography sx={{ fontWeight: "light" }}>Filters: </Typography>
       </Box>
       <FormControl size="small" sx={{ width: { xs: "100%", md: "320px" } }}>
         <InputLabel id="year-select-label">Year</InputLabel>
@@ -68,27 +68,21 @@ export function DashboardFilters() {
         </Select>
       </FormControl>
       <Button
+        startIcon={<SearchOutlinedIcon />}
         variant="outlined"
         sx={{
           width: { xs: "100%", md: "150px" },
-          display: "flex",
-          alignItems: "center",
-          gap: 2,
         }}
       >
-        <SearchOutlinedIcon />
-        Filter
+        Apply
       </Button>
       <Button
+        startIcon={<DeleteOutlinedIcon />}
         variant="outlined"
         sx={{
           width: { xs: "100%", md: "150px" },
-          display: "flex",
-          alignItems: "center",
-          gap: 2,
         }}
       >
-        <DeleteOutlinedIcon />
         Clear
       </Button>
     </Box>

@@ -11,8 +11,13 @@ export default function Home() {
       component="main"
     >
       <Box component="section">
-        <Typography variant="h4" gutterBottom>
-          Financial Summary
+        <Typography
+          component="h1"
+          variant="h5"
+          sx={{ fontWeight: 500 }}
+          gutterBottom
+        >
+          Summary
         </Typography>
       </Box>
 
