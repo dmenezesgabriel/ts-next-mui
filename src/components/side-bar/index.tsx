@@ -7,10 +7,10 @@ import {
   ListItemText,
   Toolbar,
 } from "@mui/material";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import BarChartIcon from "@mui/icons-material/BarChart";
-import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
-import SettingsIcon from "@mui/icons-material/Settings";
+import SpaceDashboardOutlinedIcon from "@mui/icons-material/SpaceDashboardOutlined";
+import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
+import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 
 const drawerWidth = 240;
 
@@ -19,10 +19,10 @@ interface SidebarProps {
 }
 
 const sidebarItems = [
-  { text: "Dashboard", icon: <DashboardIcon /> },
-  { text: "Analytics", icon: <BarChartIcon /> },
-  { text: "Finances", icon: <AttachMoneyIcon /> },
-  { text: "Settings", icon: <SettingsIcon /> },
+  { text: "Dashboard", icon: <SpaceDashboardOutlinedIcon /> },
+  { text: "Analytics", icon: <BarChartOutlinedIcon /> },
+  { text: "Finances", icon: <AttachMoneyOutlinedIcon /> },
+  { text: "Settings", icon: <SettingsOutlinedIcon /> },
 ];
 
 export function SideBar({ open }: SidebarProps) {

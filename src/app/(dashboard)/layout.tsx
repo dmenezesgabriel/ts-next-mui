@@ -12,7 +12,6 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
     <Box
       sx={{
         display: "flex",
-        minHeight: "100vh",
       }}
     >
       <Header />
