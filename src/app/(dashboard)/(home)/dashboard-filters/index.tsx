@@ -6,6 +6,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 
 export function DashboardFilters() {
   const years = ["2023", "2024", "2025"];
@@ -22,7 +23,7 @@ export function DashboardFilters() {
       }}
     >
       <Box component="span">
-        <Typography>Filters: </Typography>
+        <Typography sx={{ color: "text.secondary" }}>Filters: </Typography>
       </Box>
       <FormControl size="small" sx={{ width: { xs: "100%", md: "320px" } }}>
         <InputLabel id="year-select-label">Year</InputLabel>
@@ -76,7 +77,19 @@ export function DashboardFilters() {
         }}
       >
         <SearchOutlinedIcon />
-        Search
+        Filter
+      </Button>
+      <Button
+        variant="outlined"
+        sx={{
+          width: { xs: "100%", md: "150px" },
+          display: "flex",
+          alignItems: "center",
+          gap: 2,
+        }}
+      >
+        <DeleteOutlinedIcon />
+        Clear
       </Button>
     </Box>
   );

@@ -24,6 +24,7 @@ export function Header() {
         <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
           Analytics Dashboard
         </Typography>
+
         <IconButton sx={{ mr: 1 }}>
           <BedtimeOutlinedIcon />
         </IconButton>
