@@ -1,5 +1,13 @@
 "use client";
-import { Box, Tabs, Tab, Chip, Stack, Card, CardContent } from "@mui/material";
+
+import CardContent from "@mui/material/CardContent";
+import Card from "@mui/material/Card";
+import Stack from "@mui/material/Stack";
+import Chip from "@mui/material/Chip";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
+import Tabs from "@mui/material/Tabs";
+
 import { MonthlySpencesChart } from "./monthly-spences-chart";
 import { useState } from "react";
 

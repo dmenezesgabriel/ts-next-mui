@@ -1,97 +1,84 @@
+"use client";
+
 import { BarChart } from "@mui/x-charts/BarChart";
 
 interface MonthlyChartProps {
   filters: string[];
 }
 
-const initialData = [
-  "Marketing",
-  "Sales",
-  "Engineering",
-  "HR",
-  "Finance",
-].flatMap((dept) =>
-  [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ].map((m, i, months) => ({
-    month: m,
-    department: dept,
-    spent: 200 + i * 10 + Math.random() * 50,
-    budget: months.length * 100 + i * 50 + Math.random() * 200,
-  }))
-);
+const spentData = [
+  { department: "Sales", spent: 800, month: "jan" },
+  { department: "Sales", spent: 800, month: "fev" },
+  { department: "Sales", spent: 800, month: "mar" },
+  { department: "Sales", spent: 800, month: "apr" },
+  { department: "Sales", spent: 800, month: "jun" },
+  { department: "Sales", spent: 800, month: "jul" },
+  { department: "Sales", spent: 800, month: "aug" },
+  { department: "Sales", spent: 800, month: "sep" },
+  { department: "Sales", spent: 800, month: "oct" },
+  { department: "Sales", spent: 800, month: "dec" },
+  { department: "Marketing", spent: 800, month: "jan" },
+  { department: "Marketing", spent: 800, month: "fev" },
+  { department: "Marketing", spent: 800, month: "mar" },
+  { department: "Marketing", spent: 800, month: "apr" },
+  { department: "Marketing", spent: 800, month: "jun" },
+  { department: "Marketing", spent: 800, month: "jul" },
+  { department: "Marketing", spent: 800, month: "aug" },
+  { department: "Marketing", spent: 800, month: "sep" },
+  { department: "Marketing", spent: 800, month: "oct" },
+  { department: "Marketing", spent: 800, month: "dec" },
+];
+
+const budgetData = [
+  { budget: 2000, month: "jan" },
+  { budget: 2000, month: "fev" },
+  { budget: 2000, month: "mar" },
+  { budget: 2000, month: "apr" },
+  { budget: 2000, month: "jun" },
+  { budget: 2000, month: "jul" },
+  { budget: 2000, month: "aug" },
+  { budget: 2000, month: "sep" },
+  { budget: 2000, month: "oct" },
+  { budget: 2000, month: "dec" },
+];
 
 export function MonthlySpencesChart({ filters }: MonthlyChartProps) {
   const filteredData = filters.includes("All")
-    ? initialData
-    : initialData.filter((item) => filters.includes(item.department));
+    ? spentData
+    : spentData.filter((item) => filters.includes(item.department));
+
+  const departments = Array.from(
+    new Set(filteredData.map((item) => item.department))
+  );
+
+  function getColorForDepartment(department: string): string {
+    const colors: { [key: string]: string } = {
+      Sales: "#f87171",
+      Marketing: "#fb923c",
+    };
+    return colors[department] || "#cccccc";
+  }
 
   return (
     <BarChart
-      dataset={filteredData}
-      xAxis={[{ scaleType: "band", dataKey: "month" }]}
+      xAxis={[
+        { scaleType: "band", data: budgetData.map((data) => data.month) },
+      ]}
       series={[
-        {
+        ...departments.map((department) => ({
           data: filteredData
-            .filter((data) => data.department === "Sales")
-            .map((data) => data.spent),
-          label: "Sales",
+            .filter((item) => item.department === department)
+            .map((item) => item.spent),
+          label: department,
           valueFormatter: (v) => `$${v}`,
           stack: "department",
-          color: "#f87171",
-        },
+          color: getColorForDepartment(department),
+        })),
         {
-          data: filteredData
-            .filter((data) => data.department === "Marketing")
-            .map((data) => data.spent),
-          label: "Marketing",
-          valueFormatter: (v) => `$${v}`,
-          stack: "department",
-          color: "#fb923c",
-        },
-        {
-          data: filteredData
-            .filter((data) => data.department === "Finance")
-            .map((data) => data.spent),
-          label: "Finance",
-          valueFormatter: (v) => `$${v}`,
-          stack: "department",
-          color: "#fbbf24",
-        },
-        {
-          data: filteredData
-            .filter((data) => data.department === "Engineering")
-            .map((data) => data.spent),
-          label: "Engineering",
-          valueFormatter: (v) => `$${v}`,
-          stack: "department",
-          color: "#a3e635",
-        },
-        {
-          data: filteredData
-            .filter((data) => data.department === "HR")
-            .map((data) => data.spent),
-          label: "HR",
-          valueFormatter: (v) => `$${v}`,
-          stack: "department",
-          color: "#34d399",
-        },
-        {
-          data: initialData.map((data) => data.budget),
+          data: budgetData.map((item) => item.budget),
           label: "Budget",
           valueFormatter: (v) => `$${v}`,
-          color: "#22d3ee",
+          color: "#6366f1",
         },
       ]}
       height={400}
